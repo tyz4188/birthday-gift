@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🎂 小明 的生日快乐</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* 背景粒子 */
+        .particle {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* 主卡片 */
+        .card {
+            position: relative;
+            z-index: 10;
+            max-width: 90%;
+            width: 380px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+            animation: cardIn 1s ease-out;
+        }
+        @keyframes cardIn {
+            from { opacity: 0; transform: translateY(60px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* 蛋糕动画 */
+        .cake-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cake {
+            font-size: 90px;
+            display: inline-block;
+            animation: bounce 2s ease infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+        .name {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        /* 祝福语标签 */
+        .wishes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .wish-tag {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            animation: tagIn 0.6s ease-out backwards;
+        }
+        .wish-tag:nth-child(1) { animation-delay: 0.1s; }
+        .wish-tag:nth-child(2) { animation-delay: 0.2s; }
+        .wish-tag:nth-child(3) { animation-delay: 0.3s; }
+        .wish-tag:nth-child(4) { animation-delay: 0.4s; }
+        .wish-tag:nth-child(5) { animation-delay: 0.5s; }
+        @keyframes tagIn {
+            from { opacity: 0; transform: scale(0); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* 回忆区域 */
+        .memories {
+            background: #f8f9ff;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .memories h3 {
+            color: #764ba2;
+            font-size: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .memories ul {
+            list-style: none;
+        }
+        .memories li {
+            padding: 10px 0;
+            color: #555;
+            font-size: 15px;
+            border-bottom: 1px dashed #e0e0e0;
+            line-height: 1.6;
+        }
+        .memories li:last-child { border-bottom: none; }
+
+        /* 落款 */
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #999;
+            font-size: 14px;
+        }
+        .footer .heart {
+            color: #ff6b6b;
+            display: inline-block;
+            animation: heartbeat 1.5s ease infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* 底部提示 */
+        .hint {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 12px;
+            margin-top: 20px;
+            padding-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景粒子（JS生成） -->
+    <script>
+        for(let i=0; i<30; i++) {
+            let p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.width = p.style.height = (Math.random() * 15 + 5) + 'px';
+            p.style.background = ['#ff6b6b','#feca57','#48dbfb','#ff9ff3','#54a0ff'][Math.floor(Math.random()*5)];
+            p.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            p.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(p);
+        }
+    </script>
+
+    <div class="card">
+        <div class="cake-box">
+            <span class="cake">🎂</span>
+        </div>
+        <h1>生日快乐</h1>
+        <div class="name">小明</div>
+
+        <div class="wishes">
+            <span class="wish-tag">天天开心</span><span class="wish-tag">万事顺遂</span><span class="wish-tag">暴富暴瘦</span><span class="wish-tag">永远少年</span><span class="wish-tag">所求皆如愿</span>
+        </div>
+
+        <div class="memories">
+            <h3>💌 我们的专属回忆</h3>
+            <ul>
+                <li>✦ 2023年夏天一起去青岛看海，你在沙滩上写的字被浪冲走了</li><li>✦ 去年冬天凌晨两点去吃海底捞，你非要给我表演甩面</li><li>✦ 你教我骑自行车，结果自己先摔了</li><li>✦ 每次我难过你都会买奶茶出现在我公司楼下</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <span class="heart">❤️</span> 小红 用心制作 <span class="heart">❤️</span>
+        </div>
+    </div>
+
+    <div class="hint">长按保存 · 分享这份祝福</div>
+</body>
+</html>
